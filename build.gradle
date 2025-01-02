@@ -1,0 +1,38 @@
+// build.gradle (Project-level)
+
+buildscript {
+
+    ext {
+        // Define your nav_version here
+        nav_version = '2.8.5'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        // Android Gradle Plugin 8.x (compatible with Gradle 8.x)
+        classpath "com.android.tools.build:gradle:8.1.4"
+
+        // Kotlin Gradle Plugin matching your Kotlin version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22"
+
+        // Google Services plugin (for Firebase)
+        classpath "com.google.gms:google-services:4.4.2"
+
+        // Optional: Hilt Gradle Plugin (if you use Dagger Hilt)
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.47"
+
+        // Optional: Navigation Safe Args Gradle Plugin
+        // def nav_version = "2.8.5"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Don’t put application-level libs here
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
